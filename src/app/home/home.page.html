@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list class="ion-padding">
+    <ion-item lines="none">
+      <ion-label class="lbl">BIENVENIDO</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label class="nom">Mamaní Vargas, Manuel</ion-label>
+      <img class="imgper" src="/assets/iconper.png" alt="perfil" />
+    </ion-item>
+    <ion-item class="ibtn" lines="none">
+      <ion-buttons slot="start">
+        <ion-button class="btn btnen" (click)="mostrarEntradas()"> Entradas </ion-button>
+        <ion-button class="btn btnsal" (click)="mostrarSalidas()"> Salidas </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="tit" size="3"><strong>Usuario</strong></ion-col>
+          <ion-col class="tit" size="3"><strong>Correo</strong></ion-col>
+          <ion-col class="tit" size="3"><strong>Fecha</strong></ion-col>
+          <ion-col class="tit" size="3"><strong>Hora</strong></ion-col>
+        </ion-row>
+        <ion-row *ngFor="let registro of registros">
+          <ion-col class="sub" size="3">{{ registro.usuario }}</ion-col>
+          <ion-col class="sub" size="3">{{ registro.correo }}</ion-col>
+          <ion-col class="sub" size="3">{{ registro.fecha }}</ion-col>
+          <ion-col class="sub" size="3">{{ registro.hora }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-item lines="none">
+      <ion-button routerLink="/login" class="btnex"> Salir </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
